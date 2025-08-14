@@ -27,7 +27,7 @@ async function build(){
     await fs.copyFile(path.join(__dirname,file), path.join(outDir,file));
   }
   await fs.writeFile(path.join(outDir,'.nojekyll'),'');
-  await fs.writeFile(path.join(outDir,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${site.baseUrl}/sitemap.xml\nSitemap: ${site.baseUrl}/sitemap.txt\n`);
+  await fs.writeFile(path.join(outDir,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 
   const template = await fs.readFile(templatePath,'utf8');
   const episodeTemplate = await fs.readFile(episodeTemplatePath,'utf8');
@@ -39,7 +39,7 @@ async function build(){
   const microRows = latest.micro.map((line,i)=>{
     const share = `${site.baseUrl}/episodes/${latest.date}/`;
     const url = `episodes/${latest.date}/#m${i+1}`;
-    return `<div class="microline"><div class="microtext">${escapeHtml(line)}</div><div class="actions"><a class="btn" href="${url}">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(share)}">Share</a> <a class="btn" href="${url}#like">Like</a></div></div>`;
+    return `<div class="microline">${escapeHtml(line)}<div class="actions"><a class="btn" href="${url}">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(share)}">Share</a> <a class="btn" href="${url}#like">Like</a></div></div>`;
   }).slice(0,6);
 
   const indexDesc = escapeHtml(latest.body.slice(0,160));
@@ -69,6 +69,10 @@ async function build(){
     const story = stories[i];
     const canonical = `${site.baseUrl}/episodes/${story.date}/`;
     const bodyHtml = story.body.split(/\n+/).map((p,j)=>`<p id="m${j+1}">${escapeHtml(p)}</p>`).join('\n    ');
+    const microRowsEp = story.micro.map((line,j)=>{
+      const anchor = `#m${j+1}`;
+      return `<div class="microline">${escapeHtml(line)}<div class="actions"><a class="btn" href="${anchor}">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(canonical)}">Share</a> <a class="btn" href="${anchor}#like">Like</a></div></div>`;
+    }).join('\n    ');
     const jsonLd = {
       '@context':'https://schema.org',
       '@type':'Article',
@@ -91,6 +95,7 @@ async function build(){
       .replace(/{{TITLE}}/g, escapeHtml(story.title))
       .replace(/{{DATE}}/g, story.date)
       .replace(/{{BODY}}/g, bodyHtml)
+      .replace(/{{MICRO_ROWS}}/g, microRowsEp)
       .replace(/{{CANONICAL}}/g, canonical)
       .replace(/{{DESCRIPTION}}/g, desc)
       .replace(/{{JSONLD}}/g, JSON.stringify(jsonLd))

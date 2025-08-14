@@ -6,81 +6,26 @@
   },
   "stories": [
     {
-      "date": "2024-01-07",
-      "title": "Sparks of Dawn",
-      "body": "Morning spilled over the silent suburb with a hush of orange light. Lara stepped outside, coffee in hand, and found the sky scribbled with contrails. She imagined each line as a letter from a distant author, arriving in streaks of vapor. The air held a promise she could not name. Neighbors stirred, shutters creaked, and the sleepy street learned the shape of day. She smiled at the small drama and decided to write it down before the page of sky turned blank.",
+      "date": "2025-08-14",
+      "title": "Dust Motes",
+      "body": "At 7:12 the light turned the dust into galaxies, and nobody filed a claim.",
       "micro": [
-        "Contrails as letters",
-        "Street learns day",
-        "Sky page fades"
+        "7:12 — dust becomes galaxies, unregulated.",
+        "A window invents an economy of light.",
+        "Auditors arrive; photons refuse to comply."
       ],
-      "slug": "sparks-of-dawn"
+      "slug": "dust-motes"
     },
     {
-      "date": "2024-01-06",
-      "title": "Between Pages",
-      "body": "A tattered paperback lived on the cafe counter, free for any guest to borrow. Nadia opened it midway and found a dried leaf pressed flat, veins forming a map. She traced the paths with her finger, imagining cities at each intersection. The book's previous reader had underlined a sentence: 'Every map is a promise.' She closed the cover, sliding the leaf into her notebook to keep the promise for later. That evening, she used it as a bookmark in a new story, and the map began to grow.",
+      "date": "2025-08-13",
+      "title": "Cold Start",
+      "body": "The kettle remembers yesterday’s song; the algorithm forgets on purpose.",
       "micro": [
-        "Leaf maps promise",
-        "Underline keeps pace",
-        "Bookmark grows towns"
+        "Boil. Buffer. Begin again.",
+        "Latent heat, latent intent.",
+        "Coffee negotiates with conscience."
       ],
-      "slug": "between-pages"
-    },
-    {
-      "date": "2024-01-05",
-      "title": "Streetlight Witness",
-      "body": "The broken streetlight on Pine Avenue clicked each evening, deciding whether to glow. Aaron walked his dog under its indecision, waiting for the instant of illumination. The lamp knew the neighborhood's secrets: who came home late, who cried in parked cars, who practiced dance moves in the empty lot. Tonight it flickered to life as a cyclist crashed near the curb. The pool of light held them both, revealing scraped knees and a bouquet of spilled groceries. The lamp hummed, a silent witness, until the scene resolved and darkness returned.",
-      "micro": [
-        "Lamp weighs choices",
-        "Light spills secrets",
-        "Glow rescues crash"
-      ],
-      "slug": "streetlight-witness"
-    },
-    {
-      "date": "2024-01-04",
-      "title": "Library of Hums",
-      "body": "The old library had lost its electricity, yet patrons still came. Candles lined the aisles, lending each shelf a soft halo. Marta volunteered to guide visitors with a lantern and a hum. She could not sing, but the low tune kept nerves steady and pages turning. Readers hummed along, creating a quiet choir among biographies and poetry. When power returned with a flicker, the lights felt too loud. The patrons lingered in the afterglow, reluctant to surrender the chorus that had held the silence together.",
-      "micro": [
-        "Lantern-led shelves",
-        "Readers hum together",
-        "Light feels loud"
-      ],
-      "slug": "library-of-hums"
-    },
-    {
-      "date": "2024-01-03",
-      "title": "River Learning",
-      "body": "The river behind the school carried more than water. During lunch, Leo sat with his sandwich and watched driftwood negotiate the bends. Each snag became a small lesson in patience. A goose paddled by, eyeing him as if grading his silence. When the bell rang, he stayed, letting the current decide the pace of afternoon. He imagined all the notebooks the river might have swallowed, pages dissolving into the current, ideas shared with fish. Leo returned to class late, but carrying a new fluid handwriting in his mind.",
-      "micro": [
-        "Driftwood lectures",
-        "Goose grades silence",
-        "Current steals notes"
-      ],
-      "slug": "river-learning"
-    },
-    {
-      "date": "2024-01-02",
-      "title": "Midnight Signal",
-      "body": "The town’s radio tower blinked a lonely red pulse against the midnight clouds. Jessa watched from her attic room, counting the rhythm like breaths. She tuned a rusted handheld radio, hoping for a secret song. Only static greeted her, yet she imagined voices riding the hiss, travelers announcing their arrival. The pulse continued, a heartbeat for the sleeping city. Jessa tapped her own answer on the windowpane, three soft beats at a time. Somewhere between the pulse and the static, she believed someone answered back.",
-      "micro": [
-        "Tower heartbeat",
-        "Static hides voices",
-        "Three taps replied"
-      ],
-      "slug": "midnight-signal"
-    },
-    {
-      "date": "2024-01-01",
-      "title": "Snow Instructions",
-      "body": "Fresh snow stacked along the sidewalk like pages in a manual. Milo followed the untouched path and pretended each print he left was a step in a recipe. The morning was quiet, except for the whispers of flakes settling on his coat. At the corner he paused, reading the street as if it held instructions for living slowly. A passerby nodded, both of them apprentices to winter's brief lesson. By the time he reached home, the manual had vanished under the noon sun, but the steps remained memorized.",
-      "micro": [
-        "Fresh page falls",
-        "Footsteps read slowly",
-        "Lessons melt to memory"
-      ],
-      "slug": "snow-instructions"
+      "slug": "cold-start"
     }
   ]
 }

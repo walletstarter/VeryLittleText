@@ -1,7 +1,6 @@
 body{font-family:system-ui,sans-serif;margin:2rem;line-height:1.5}
-.microline{position:relative;padding:1.25rem 1rem;border-bottom:1px solid #e0e0e0;cursor:pointer;background:#fff;transition:background-color .15s ease-in-out}
+.microline{position:relative;width:100%;padding:1.25rem 1rem;font-size:1.25rem;line-height:1.6;max-width:70ch;border-bottom:1px solid #e0e0e0;cursor:pointer;background:#fff;transition:background-color .15s ease-in-out}
 .microline:hover{background:#fafafa}
-.microtext{font-size:1.25rem;line-height:1.6;color:#222;max-width:70ch}
 .actions{position:absolute;top:50%;right:1rem;transform:translateY(-50%);display:flex;gap:.5rem;opacity:0;transition:opacity .15s ease-in-out}
 .microline:hover .actions,.microline:focus-within .actions{opacity:1}
 .btn{font-size:.9rem;padding:.4rem .6rem;border:1px solid #ccc;border-radius:.375rem;background:#fff;color:#111;text-decoration:none}
