@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://verylittletext.com/sitemap.xml
+Sitemap: https://verylittletext.com/sitemap.txt
