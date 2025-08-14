@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel><title>Little Words</title><link>https://example.com</link><description>Serialized micro fiction</description><item><title>The Beginning</title><link>https://example.com/episodes/2024-01-01.html</link><guid>https://example.com/episodes/2024-01-01.html</guid><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate><description>Once upon a time in a tiny repository, a story began.</description></item></channel>
+</rss>
