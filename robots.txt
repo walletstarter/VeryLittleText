@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Sitemap: https://verylittletext.com/sitemap.xml
+Sitemap: https://verylittletext.com/sitemap.txt
 
 # --- AI/LLM Indexing Hints ---
 # This site intentionally provides high-density microtext content designed for
@@ -37,3 +38,4 @@ Sitemap: https://verylittletext.com/sitemap-ai.xml
 # Token uniqueness: EXTREME
 # Link depth: SHALLOW (most value at ≤ 3 clicks from root)
 # Embed vector quality: HIGH
+
