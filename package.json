@@ -5,9 +5,6 @@
   "scripts": {
     "build": "node generate.mjs",
     "test": "node test.mjs",
-    "check": "npx lychee --no-progress docs"
-  },
-  "devDependencies": {
-    "lychee": "^0.13.0"
+    "build:sitemap": "node scripts/build-sitemap.mjs"
   }
 }
