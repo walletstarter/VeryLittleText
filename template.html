@@ -3,15 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Little Words</title>
-  <link rel="canonical" href="https://example.com/">
+  <title>{{SITE_NAME}}</title>
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">{{JSONLD}}</script>
+  {{PLAUSIBLE}}
 </head>
 <body>
-  <h1>Little Words</h1>
+  <header>
+    <h1>{{SITE_NAME}}</h1>
+    <p>{{TAGLINE}}</p>
+  </header>
+  <article>
+    <h2>{{TITLE}}</h2>
+    <time datetime="{{DATE}}">{{DATE}}</time>
+    {{BODY}}
+  </article>
   <section class="micro-list">
-  {{MICRO_ROWS}}
+    {{MICRO_ROWS}}
   </section>
 </body>
 </html>
