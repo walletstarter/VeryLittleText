@@ -22,6 +22,7 @@ for (const s of stories) {
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map(e=>makeUrl(e)).join('\n')}\n</urlset>`;
 await fs.mkdir(path.join(root, 'docs'), {recursive:true});
 await fs.writeFile(path.join(root, 'docs', 'sitemap.xml'), xml);
+await fs.writeFile(path.join(root, 'docs', 'sitemap.txt'), entries.map(e=>e.loc).join('\n')+'\n');
 
 function makeUrl({loc,lastmod,changefreq,priority}) {
   return `  <url><loc>${escapeXml(loc)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`;

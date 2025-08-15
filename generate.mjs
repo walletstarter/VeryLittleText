@@ -38,7 +38,9 @@ async function build(){
   const latest = stories[0];
   const microLines = latest.micro.map((line,i)=>{
     const microSlug = `${latest.slug}-${i+1}`;
-    return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="/s/${microSlug}">Open</a><a class="btn" href="/share/${microSlug}" rel="nofollow">Share</a></span></div>`;
+    const target = `/episodes/${latest.date}/#${microSlug}`;
+    const shareUrl = encodeURIComponent(`${site.baseUrl}${target}`);
+    return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="${target}">Open</a><a class="btn" href="https://twitter.com/intent/tweet?url=${shareUrl}" rel="nofollow">Share</a></span></div>`;
   }).join('\n        ');
 
   const indexDesc = escapeHtml(latest.body.slice(0,160));
@@ -51,6 +53,7 @@ async function build(){
   };
   const indexHtml = template
     .replace(/{{TITLE}}/g, escapeHtml(`${site.name} — ${latest.title}`))
+    .replace(/{{SITE_NAME}}/g, escapeHtml(site.name))
     .replace(/{{TAGLINE}}/g, escapeHtml(site.tagline))
     .replace(/{{STORY_TITLE}}/g, escapeHtml(latest.title))
     .replace(/{{DATE_ISO}}/g, latest.date)
@@ -67,7 +70,9 @@ async function build(){
     const canonical = `${site.baseUrl}/episodes/${story.date}/`;
     const microLinesEp = story.micro.map((line,j)=>{
       const microSlug = `${story.slug}-${j+1}`;
-      return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="/s/${microSlug}">Open</a><a class="btn" href="/share/${microSlug}" rel="nofollow">Share</a></span></div>`;
+      const target = `#${microSlug}`;
+      const shareUrl = encodeURIComponent(`${site.baseUrl}/episodes/${story.date}/${target}`);
+      return `<div id="${microSlug}" class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="${target}">Open</a><a class="btn" href="https://twitter.com/intent/tweet?url=${shareUrl}" rel="nofollow">Share</a></span></div>`;
     }).join('\n        ');
     const jsonLd = {
       '@context':'https://schema.org',
@@ -77,11 +82,14 @@ async function build(){
       url: canonical,
       author: {'@type':'Organization', name: site.name},
       publisher: {'@type':'Organization', name: site.name},
-      mainEntityOfPage: canonical
+      mainEntityOfPage: canonical,
+      articleBody: story.body,
+      wordCount: story.body.split(/\s+/).length
     };
     const desc = escapeHtml(story.body.slice(0,160));
     const epHtml = episodeTemplate
       .replace(/{{STORY_TITLE}}/g, escapeHtml(story.title))
+      .replace(/{{SITE_NAME}}/g, escapeHtml(site.name))
       .replace(/{{DATE_ISO}}/g, story.date)
       .replace(/{{STORY_BODY}}/g, escapeHtml(story.body))
       .replace(/{{MICRO_LINES}}/g, microLinesEp)

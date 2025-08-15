@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "node generate.mjs && node scripts/build-sitemap.mjs",
-    "verify": "node scripts/verify.mjs"
+    "build": "node generate.mjs && node scripts/build-sitemap.mjs && node scripts/build-feed.mjs",
+    "verify": "node scripts/verify.mjs",
+    "test": "node test.mjs"
   }
 }
