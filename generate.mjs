@@ -51,6 +51,7 @@ async function build(){
   };
   const indexHtml = template
     .replace(/{{TITLE}}/g, escapeHtml(`${site.name} — ${latest.title}`))
+    .replace(/{{SITE_NAME}}/g, escapeHtml(site.name))
     .replace(/{{TAGLINE}}/g, escapeHtml(site.tagline))
     .replace(/{{STORY_TITLE}}/g, escapeHtml(latest.title))
     .replace(/{{DATE_ISO}}/g, latest.date)
@@ -77,11 +78,14 @@ async function build(){
       url: canonical,
       author: {'@type':'Organization', name: site.name},
       publisher: {'@type':'Organization', name: site.name},
-      mainEntityOfPage: canonical
+      mainEntityOfPage: canonical,
+      articleBody: story.body,
+      wordCount: story.body.split(/\s+/).length
     };
     const desc = escapeHtml(story.body.slice(0,160));
     const epHtml = episodeTemplate
       .replace(/{{STORY_TITLE}}/g, escapeHtml(story.title))
+      .replace(/{{SITE_NAME}}/g, escapeHtml(site.name))
       .replace(/{{DATE_ISO}}/g, story.date)
       .replace(/{{STORY_BODY}}/g, escapeHtml(story.body))
       .replace(/{{MICRO_LINES}}/g, microLinesEp)
