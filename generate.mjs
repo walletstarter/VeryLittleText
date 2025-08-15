@@ -38,7 +38,9 @@ async function build(){
   const latest = stories[0];
   const microLines = latest.micro.map((line,i)=>{
     const microSlug = `${latest.slug}-${i+1}`;
-    return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="/s/${microSlug}">Open</a><a class="btn" href="/share/${microSlug}" rel="nofollow">Share</a></span></div>`;
+    const target = `/episodes/${latest.date}/#${microSlug}`;
+    const shareUrl = encodeURIComponent(`${site.baseUrl}${target}`);
+    return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="${target}">Open</a><a class="btn" href="https://twitter.com/intent/tweet?url=${shareUrl}" rel="nofollow">Share</a></span></div>`;
   }).join('\n        ');
 
   const indexDesc = escapeHtml(latest.body.slice(0,160));
@@ -68,7 +70,9 @@ async function build(){
     const canonical = `${site.baseUrl}/episodes/${story.date}/`;
     const microLinesEp = story.micro.map((line,j)=>{
       const microSlug = `${story.slug}-${j+1}`;
-      return `<div class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="/s/${microSlug}">Open</a><a class="btn" href="/share/${microSlug}" rel="nofollow">Share</a></span></div>`;
+      const target = `#${microSlug}`;
+      const shareUrl = encodeURIComponent(`${site.baseUrl}/episodes/${story.date}/${target}`);
+      return `<div id="${microSlug}" class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="${target}">Open</a><a class="btn" href="https://twitter.com/intent/tweet?url=${shareUrl}" rel="nofollow">Share</a></span></div>`;
     }).join('\n        ');
     const jsonLd = {
       '@context':'https://schema.org',

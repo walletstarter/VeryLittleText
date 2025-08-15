@@ -25,7 +25,9 @@
     <h1 class="site-title">Very Little Text</h1>
     <p class="site-tag">{{TAGLINE}}</p>
     <button id="flood-toggle" class="btn flood-toggle" type="button" aria-pressed="false">Flood</button>
+
     <button id="flood-toggle" class="btn flood-toggle" type="button">Flood</button>
+
   </header>
 
   <main>
@@ -52,6 +54,34 @@
     </section>
   </main>
   <script>
+
+    const ft = document.getElementById('flood-toggle');
+    const b = document.body;
+
+    const activate = () => {
+      b.classList.add('mode-flood');
+      ft.setAttribute('aria-pressed', 'true');
+    };
+    const deactivate = () => {
+      b.classList.remove('mode-flood');
+      ft.setAttribute('aria-pressed', 'false');
+    };
+
+    // Hover activates flood mode
+    ft.addEventListener('mouseenter', activate);
+    ft.addEventListener('mouseleave', deactivate);
+    // Focus (keyboard) activates flood mode
+    ft.addEventListener('focus', activate);
+    ft.addEventListener('blur', deactivate);
+    // Click toggles for touch devices
+    ft.addEventListener('click', () => {
+      if (b.classList.contains('mode-flood')) {
+        deactivate();
+      } else {
+        activate();
+      }
+    });
+
     const ft=document.getElementById('flood-toggle');
     const b=document.body;
     ft.addEventListener('click',()=>{
@@ -62,6 +92,7 @@
     ft.addEventListener('mouseleave',()=>b.classList.remove('mode-flood'));
     ft.addEventListener('focus',()=>b.classList.add('mode-flood'));
     ft.addEventListener('blur',()=>b.classList.remove('mode-flood'));
+
   </script>
 </body>
 </html>

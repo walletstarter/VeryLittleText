@@ -14,6 +14,9 @@ async function main(){
   await exists('docs/feed.xml');
   const indexHtml = await fs.readFile('docs/index.html','utf8');
   assert(indexHtml.includes('application/ld+json'),'index json-ld missing');
+  assert(indexHtml.includes('id="flood-toggle"'),'flood toggle missing');
+  assert(indexHtml.includes('>Open<'),'Open button missing');
+  assert(indexHtml.includes('intent/tweet'),'Share link missing');
   const epHtml = await fs.readFile(`docs/episodes/${eps[0]}/index.html`,'utf8');
   assert(epHtml.includes('application/ld+json'),'episode json-ld missing');
   console.log('QA checks passed');
