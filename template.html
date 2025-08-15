@@ -25,6 +25,7 @@
     <h1 class="site-title">Very Little Text</h1>
     <p class="site-tag">{{TAGLINE}}</p>
     <button id="flood-toggle" class="btn flood-toggle" type="button" aria-pressed="false">Flood</button>
+    <button id="flood-toggle" class="btn flood-toggle" type="button">Flood</button>
   </header>
 
   <main>
@@ -57,6 +58,10 @@
       const active = b.classList.toggle('mode-flood');
       ft.setAttribute('aria-pressed', active);
     });
+    ft.addEventListener('mouseenter',()=>b.classList.add('mode-flood'));
+    ft.addEventListener('mouseleave',()=>b.classList.remove('mode-flood'));
+    ft.addEventListener('focus',()=>b.classList.add('mode-flood'));
+    ft.addEventListener('blur',()=>b.classList.remove('mode-flood'));
   </script>
 </body>
 </html>

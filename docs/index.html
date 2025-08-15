@@ -25,6 +25,7 @@
     <h1 class="site-title">Very Little Text</h1>
     <p class="site-tag">AI-crafted micro-text that blooms into actions.</p>
     <button id="flood-toggle" class="btn flood-toggle" type="button" aria-pressed="false">Flood</button>
+    <button id="flood-toggle" class="btn flood-toggle" type="button">Flood</button>
   </header>
 
   <main>
@@ -45,7 +46,7 @@ Evening arrives and still the words continue, reflecting on shadows, on silence,
         <div class="microline"><span class="microtext">Letters train for marathons.</span><span class="actions"><a class="btn" href="/s/endless-text-2">Open</a><a class="btn" href="/share/endless-text-2" rel="nofollow">Share</a></span></div>
         <div class="microline"><span class="microtext">Sentences knit endless scarves.</span><span class="actions"><a class="btn" href="/s/endless-text-3">Open</a><a class="btn" href="/share/endless-text-3" rel="nofollow">Share</a></span></div>
         <div class="microline"><span class="microtext">Commas practice deep breathing.</span><span class="actions"><a class="btn" href="/s/endless-text-4">Open</a><a class="btn" href="/share/endless-text-4" rel="nofollow">Share</a></span></div>
-        <div class="microline"><span class="microtext">Pages stretch like dawn.</span><span class="actions"><a class="btn" href="/s/endless-text-5">Open</a><a class="btn" href="/share/endless-text-5" rel="nofollow">Share</a></span></div>
+        <div class="microline"><span class="microtext">Pages stretch like dawn.</span><span class="actions"><a class="btn" href="/s/endless-text-5">Open</a><a class="btn" href="/share/endless-text-5" rel="nofollow">Share</a></span></div><<<<<<< codex/complete-visual-wall-and-fix-publishing-issues-kepqjc
         <div class="microline"><span class="microtext">Margins whisper encouragement.</span><span class="actions"><a class="btn" href="/s/endless-text-6">Open</a><a class="btn" href="/share/endless-text-6" rel="nofollow">Share</a></span></div>
         <div class="microline"><span class="microtext">Chapters audition for sequels.</span><span class="actions"><a class="btn" href="/s/endless-text-7">Open</a><a class="btn" href="/share/endless-text-7" rel="nofollow">Share</a></span></div>
         <div class="microline"><span class="microtext">Footnotes chase the spotlight.</span><span class="actions"><a class="btn" href="/s/endless-text-8">Open</a><a class="btn" href="/share/endless-text-8" rel="nofollow">Share</a></span></div>
@@ -107,6 +108,10 @@ Evening arrives and still the words continue, reflecting on shadows, on silence,
       const active = b.classList.toggle('mode-flood');
       ft.setAttribute('aria-pressed', active);
     });
+    ft.addEventListener('mouseenter',()=>b.classList.add('mode-flood'));
+    ft.addEventListener('mouseleave',()=>b.classList.remove('mode-flood'));
+    ft.addEventListener('focus',()=>b.classList.add('mode-flood'));
+    ft.addEventListener('blur',()=>b.classList.remove('mode-flood'));
   </script>
 </body>
 </html>
