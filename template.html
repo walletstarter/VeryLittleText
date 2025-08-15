@@ -1,26 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{SITE_NAME}}</title>
-  <link rel="canonical" href="{{CANONICAL}}">
+  <meta charset="utf-8">
+  <title>{{TITLE}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{DESCRIPTION}}">
-  <meta property="og:title" content="{{SITE_NAME}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
   <meta property="og:url" content="{{CANONICAL}}">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">{{JSONLD}}</script>
   {{PLAUSIBLE}}
 </head>
-<body>
-  <article>
-    <h1>{{TITLE}}</h1>
-    <time datetime="{{DATE}}">{{DATE}}</time>
-    {{BODY}}
-  </article>
-  <section class="micro-list">
-    {{MICRO_ROWS}}
-  </section>
+<body class="mode-flood">
+  <header class="site-header">
+    <h1 class="site-title">Very Little Text</h1>
+    <p class="site-tag">{{TAGLINE}}</p>
+  </header>
+
+  <main>
+    <article class="episode">
+      <h2 class="episode-title">{{STORY_TITLE}}</h2>
+      <p class="episode-date">{{DATE_ISO}}</p>
+      <p class="episode-body">{{STORY_BODY}}</p>
+    </article>
+
+    <section aria-labelledby="micro" class="micro-section">
+      <h3 id="micro" class="visually-hidden">Micro-lines</h3>
+      <div class="micro-lines-container">
+        {{MICRO_LINES}}
+        <!-- generator must emit a series of .microline blocks like:
+        <div class="microline">
+          <span class="microtext">A tiny dense line</span>
+          <span class="actions">
+            <a class="btn" href="/s/slug-1">Open</a>
+            <a class="btn" href="/share/slug-1" rel="nofollow">Share</a>
+          </span>
+        </div>
+        -->
+      </div>
+    </section>
+  </main>
 </body>
 </html>
