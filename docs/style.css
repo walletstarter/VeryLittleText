@@ -1,9 +1,59 @@
-body{font-family:system-ui,sans-serif;margin:2rem;line-height:1.5}
-.microline{position:relative;width:100%;padding:1.25rem 1rem;font-size:1.25rem;line-height:1.6;max-width:70ch;border-bottom:1px solid #e0e0e0;cursor:pointer;background:#fff;transition:background-color .15s ease-in-out}
-.microline:hover{background:#fafafa}
-.actions{position:absolute;top:50%;right:1rem;transform:translateY(-50%);display:flex;gap:.5rem;opacity:0;transition:opacity .15s ease-in-out}
-.microline:hover .actions,.microline:focus-within .actions{opacity:1}
-.btn{font-size:.9rem;padding:.4rem .6rem;border:1px solid #ccc;border-radius:.375rem;background:#fff;color:#111;text-decoration:none}
-.btn:focus-visible{outline:2px solid #000;outline-offset:2px}
-@media(max-width:600px){.actions{position:static;transform:none;margin-top:.5rem;opacity:1;justify-content:flex-start}}
-.episode-nav{margin-top:2rem;display:flex;gap:1rem}
+/* Base */
+:root { --col-gap: 1rem; --btn-pad: 0.35rem 0.55rem; }
+html,body{margin:0;padding:0}
+body{font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;color:#111;background:#fff}
+.site-header{padding:1rem 1rem 0.25rem}
+.site-title{margin:0 0 0.25rem;font-weight:800;letter-spacing:-0.01em}
+.site-tag{margin:0;color:#666}
+
+/* Episode blurb */
+.episode{padding:0 1rem 0.5rem;border-bottom:1px solid #eee}
+.episode-title{margin:0.25rem 0 0}
+.episode-date{margin:0;color:#888;font-size:.9rem}
+.episode-body{margin:.5rem 0 1rem;color:#222}
+
+/* Tiny text flood */
+.mode-flood .micro-lines-container{
+  column-count:3;
+  column-gap:var(--col-gap);
+  padding:0 1rem 1rem;
+}
+@media (max-width:900px){ .mode-flood .micro-lines-container{ column-count:2; } }
+@media (max-width:600px){ .mode-flood .micro-lines-container{ column-count:1; } }
+
+.microline{
+  break-inside:avoid;
+  position:relative;
+  padding:.15rem .25rem;
+  border-radius:.15rem;
+  transition:background-color .12s ease-in-out;
+}
+.microline:hover,.microline:focus-within{ background:#fafafa; }
+
+.microtext{
+  display:block;
+  font-size:.78rem;      /* tiny */
+  line-height:1.15;      /* dense */
+  letter-spacing:.01em;
+  color:#111;
+  margin:0 5.5rem 0.15rem 0; /* room for buttons on right */
+}
+
+/* Actions appear on hover/focus */
+.actions{
+  position:absolute;
+  top:0; right:0.25rem;
+  display:inline-flex; gap:.35rem;
+  opacity:0; transition:opacity .12s ease-in-out;
+  height:1.4rem; align-items:center;
+}
+.microline:hover .actions, .microline:focus-within .actions{ opacity:1; }
+
+.btn{
+  font-size:.72rem; border:1px solid #ddd; padding:var(--btn-pad);
+  border-radius:.35rem; background:#fff; color:#111; text-decoration:none;
+}
+.btn:focus-visible{ outline:2px solid #000; outline-offset:2px; }
+
+/* Accessibility */
+.visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
