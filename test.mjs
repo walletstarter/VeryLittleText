@@ -17,8 +17,12 @@ async function main(){
   assert(indexHtml.includes('id="flood-toggle"'),'flood toggle missing');
   assert(indexHtml.includes('>Open<'),'Open button missing');
   assert(indexHtml.includes('intent/tweet'),'Share link missing');
+  const indexJson = JSON.parse(indexHtml.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
+  assert(indexJson.inLanguage === 'en', 'index json-ld missing language');
   const epHtml = await fs.readFile(`docs/episodes/${eps[0]}/index.html`,'utf8');
   assert(epHtml.includes('application/ld+json'),'episode json-ld missing');
+  const epJson = JSON.parse(epHtml.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
+  assert(epJson.inLanguage === 'en', 'episode json-ld missing language');
   console.log('QA checks passed');
 }
 
