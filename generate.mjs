@@ -54,11 +54,15 @@ async function build(){
 
   const indexDesc = escapeHtml(latest.body.slice(0,160));
   const indexJsonLd = {
-    '@context':'https://schema.org',
-    '@type':'WebSite',
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site.baseUrl}/#website`,
     name: site.name,
     url: site.baseUrl,
-    description: site.tagline
+    description: site.tagline,
+    inLanguage: 'en',
+    genre: 'AI Microfiction',
+    keywords: 'ai, microfiction, short stories'
   };
   const indexHtml = template
     .replace(/{{TITLE}}/g, escapeHtml(`${site.name} — ${latest.title}`))
@@ -84,16 +88,20 @@ async function build(){
       return `<div id="${microSlug}" class="microline"><span class="microtext">${escapeHtml(line)}</span><span class="actions"><a class="btn" href="${target}">Open</a><a class="btn" href="https://twitter.com/intent/tweet?url=${shareUrl}" rel="nofollow">Share</a></span></div>`;
     }).join('\n        ');
     const jsonLd = {
-      '@context':'https://schema.org',
-      '@type':'Article',
+      '@context': 'https://schema.org',
+      '@type': 'ShortStory',
+      '@id': canonical,
       headline: story.title,
       datePublished: story.date,
       url: canonical,
-      author: {'@type':'Organization', name: site.name},
-      publisher: {'@type':'Organization', name: site.name},
+      author: { '@type': 'Organization', name: site.name },
+      publisher: { '@type': 'Organization', name: site.name },
       mainEntityOfPage: canonical,
       articleBody: story.body,
-      wordCount: story.body.split(/\s+/).length
+      wordCount: story.body.split(/\s+/).length,
+      inLanguage: 'en',
+      genre: 'AI Microfiction',
+      keywords: 'ai, microfiction, short story'
     };
     const desc = escapeHtml(story.body.slice(0,160));
     const epHtml = episodeTemplate
