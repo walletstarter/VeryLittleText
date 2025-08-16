@@ -24,8 +24,8 @@ npm test
 The tests verify that generated pages exist and include structured data.
 
 ## Project Structure
-- `data/stories.json` – source stories and site metadata
-- `generate.mjs` – converts `stories.json` into static HTML
+- `data/very_little_text_expanded.json` – source stories and site metadata
+- `generate.mjs` – converts `very_little_text_expanded.json` into static HTML
 - `docs/` – output folder ready to deploy to any static host
 
 ## SEO for AI Microfiction
