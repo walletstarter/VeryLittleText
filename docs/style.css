@@ -1,7 +1,7 @@
 /* Base */
-:root { --col-gap: 1rem; --btn-pad: 0.35rem 0.55rem; --actions-w: 6.5rem; }
-html,body{margin:0;padding:0}
-body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff}
+:root { --col-gap: 1rem; --btn-pad: 0.35rem 0.55rem; --actions-w: 6.5rem; --teal: #40e0d0; }
+html,body{margin:0;padding:0;box-sizing:border-box}
+body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff;border:0.5rem solid var(--teal);}
 .site-header{padding:1rem 1rem 0.25rem}
 .site-title{margin:0 0 0.25rem;font-weight:800;letter-spacing:-0.01em}
 .site-tag{margin:0;color:#666}
@@ -15,10 +15,11 @@ body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff}
 /* WALL OF TINY TEXT (flood mode) */
 .micro-lines-container{ padding: 0 1rem 1rem; }
 .mode-flood .micro-lines-container{
-  column-count: 3;
+  column-count: 5;
   column-gap: var(--col-gap);
 }
-@media (max-width: 900px){ .mode-flood .micro-lines-container{ column-count:2; } }
+@media (max-width: 1200px){ .mode-flood .micro-lines-container{ column-count:4; } }
+@media (max-width: 900px){ .mode-flood .micro-lines-container{ column-count:3; } }
 @media (max-width: 600px){ .mode-flood .micro-lines-container{ column-count:1; } }
 
 /* Each microline is a block that avoids breaking across columns */
@@ -27,18 +28,19 @@ body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff}
   break-inside: avoid;
   padding: .15rem .25rem;
   border-radius: .15rem;
-  transition: background-color .12s ease-in-out;
+  border:1px solid #ddd;
+  transition: background-color .12s ease-in-out, border-color .12s ease-in-out;
 }
-.microline:hover, .microline:focus-within{ background:#fafafa; }
+.microline:hover, .microline:focus-within{ background:#f0f7f7; border-color: var(--teal); }
 
 /* Tiny, dense text; reserve space on the right for actions to prevent CLS */
 .microtext{
   display: block;
-  font-size: .78rem;      /* tiny */
-  line-height: 1.15;      /* dense */
+  font-size: .65rem;      /* tinier */
+  line-height: 1.1;       /* denser */
   letter-spacing: .01em;
   color:#111;
-  margin: 0 calc(var(--actions-w) + .5rem) .12rem 0;  /* reserve action width */
+  margin: 0 calc(var(--actions-w) + .5rem) .1rem 0;  /* reserve action width */
 }
 
 /* Actions: absolutely positioned; fade in (no layout shift) */
@@ -60,14 +62,16 @@ body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff}
 
 /* Buttons */
 .btn{
-  font-size: .72rem;
-  border: 1px solid #ddd;
+  font-size: .9rem;
+  border: 1px solid #888;
   padding: var(--btn-pad);
   border-radius: .35rem;
-  background: #fff;
+  background: #e0e0e0;
   color:#111;
   text-decoration: none;
+  transition: background-color .12s ease-in-out, color .12s ease-in-out, border-color .12s ease-in-out;
 }
+.btn:hover, .btn:focus{ background: var(--teal); color:#fff; border-color: var(--teal); }
 .btn:focus-visible{ outline: 2px solid #000; outline-offset: 2px; }
 
 /* Flood toggle */
@@ -79,7 +83,8 @@ body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff}
 }
 
 .mode-flood .flood-toggle{
-  background:#111;
+  background:var(--teal);
+  border-color:var(--teal);
   color:#fff;
 }
 

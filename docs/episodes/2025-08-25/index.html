@@ -30,9 +30,6 @@
     <h1 class="site-title"><a href="/">Very Little Text</a></h1>
     <button id="flood-toggle" class="btn flood-toggle" type="button" aria-pressed="false">Flood</button>
 
-
-    <button id="flood-toggle" class="btn flood-toggle" type="button">Flood</button>
-
   </header>
 
   <main class="episode">
@@ -132,16 +129,6 @@ Evening brings long-tail associations. Paragraphs interleave until causality blu
         activate();
       }
     });
-    const ft=document.getElementById('flood-toggle');
-    const b=document.body;
-    ft.addEventListener('click',()=>{
-      const active=b.classList.toggle('mode-flood');
-      ft.setAttribute('aria-pressed',active);
-    });
-    ft.addEventListener('mouseenter',()=>b.classList.add('mode-flood'));
-    ft.addEventListener('mouseleave',()=>b.classList.remove('mode-flood'));
-    ft.addEventListener('focus',()=>b.classList.add('mode-flood'));
-    ft.addEventListener('blur',()=>b.classList.remove('mode-flood'));
   </script>
 </body>
 </html>
