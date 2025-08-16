@@ -1,10 +1,28 @@
 /* Base */
 :root { --col-gap: 1rem; --btn-pad: 0.35rem 0.55rem; --actions-w: 6.5rem; --teal: #40e0d0; }
 html,body{margin:0;padding:0;box-sizing:border-box}
-body{font:16px/1.45 "Times New Roman",Times,serif;color:#111;background:#fff;border:0.5rem solid var(--teal);}
-.site-header{padding:1rem 1rem 0.25rem}
-.site-title{margin:0 0 0.25rem;font-weight:800;letter-spacing:-0.01em}
-.site-tag{margin:0;color:#666}
+body{
+  font:16px/1.45 "Times New Roman",Times,serif;
+  color:#111;
+  border:0.5rem solid var(--teal);
+  background:conic-gradient(#3498db 0 25%, #f0f0f0 0 50%, #3498db 0 75%, #f0f0f0 0);
+  background-size:2rem 2rem;
+  animation:fold 4s linear infinite;
+}
+.site-header{padding:1rem 1rem 0.5rem;text-align:center}
+.site-title{margin:0;font-weight:800;letter-spacing:-0.01em;font-size:2rem}
+.site-tag{margin:0;color:#666;font-style:italic}
+.site-github{margin-top:.5rem}
+.site-github a{color:var(--teal);text-decoration:none}
+.site-github a:hover{text-decoration:underline}
+
+@keyframes fold{
+  0%{background-position:0 0}
+  25%{background-position:2rem 0}
+  50%{background-position:2rem 2rem}
+  75%{background-position:0 2rem}
+  100%{background-position:0 0}
+}
 
 /* Episode summary */
 .episode{padding:0 1rem 0.5rem;border-bottom:1px solid #eee}
