@@ -107,6 +107,7 @@ async function build(){
     const epHtml = episodeTemplate
       .replace(/{{STORY_TITLE}}/g, escapeHtml(story.title))
       .replace(/{{SITE_NAME}}/g, escapeHtml(site.name))
+      .replace(/{{TAGLINE}}/g, escapeHtml(site.tagline))
       .replace(/{{DATE_ISO}}/g, story.date)
       .replace(/{{STORY_BODY}}/g, escapeHtml(story.body))
       .replace(/{{MICRO_LINES}}/g, microLinesEp)
