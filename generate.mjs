@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataPath = path.join(__dirname, 'data', 'stories.json');
+const dataPath = path.join(__dirname, 'data', 'very_little_text_expanded.json');
 const templatePath = path.join(__dirname, 'template.html');
 const episodeTemplatePath = path.join(__dirname, 'episode.html');
 const outDir = path.join(__dirname, 'docs');
@@ -23,6 +23,15 @@ async function build(){
   await fs.rm(outDir,{recursive:true, force:true});
   await fs.mkdir(episodesDir,{recursive:true});
   await fs.copyFile(path.join(__dirname,'style.css'), path.join(outDir,'style.css'));
+  for (const asset of ['favicon_32x32.png','favicon_16x16.png','og_image_1200x630.png','twitter_card_800x418.png','preview_1024x512.png']) {
+    const src = path.join(__dirname, asset);
+    try {
+      await fs.copyFile(src, path.join(outDir, asset));
+    } catch (err) {
+      if (err.code !== 'ENOENT') throw err;
+    }
+  }
+  await fs.copyFile(path.join(__dirname,'CNAME'), path.join(outDir,'CNAME'));
   for(const file of ['_headers','_redirects']){
     await fs.copyFile(path.join(__dirname,file), path.join(outDir,file));
   }

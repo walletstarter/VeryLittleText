@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 
-const data = JSON.parse(await fs.readFile(path.join(root, 'data', 'stories.json'), 'utf8'));
+const data = JSON.parse(await fs.readFile(path.join(root, 'data', 'very_little_text_expanded.json'), 'utf8'));
 const site = data.site;
 let stories = Array.isArray(data.stories) ? data.stories.slice() : [];
 stories.sort((a,b)=>b.date.localeCompare(a.date));

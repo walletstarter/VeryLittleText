@@ -26,7 +26,7 @@ exists('docs/index.html');
 exists('docs/sitemap.xml');
 exists('docs/sitemap.txt');
 
-const data = JSON.parse(fs.readFileSync(path.join(root,'data','stories.json'),'utf8'));
+const data = JSON.parse(fs.readFileSync(path.join(root,'data','very_little_text_expanded.json'),'utf8'));
 for(const s of data.stories){
   exists(`docs/episodes/${s.date}/index.html`);
 }
