@@ -1,41 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Very Little Text</title>
-  <link rel="canonical" href="https://verylittletext.com/">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png">
-  <meta name="description" content="The page inhales. Tiny sentences arrive like rain across glass. Nothing shouts; everything accumulates until it feels like weather.">
-  <meta property="og:title" content="Very Little Text">
-  <meta property="og:description" content="The page inhales. Tiny sentences arrive like rain across glass. Nothing shouts; everything accumulates until it feels like weather.">
-  <meta property="og:url" content="https://verylittletext.com/">
-  <meta property="og:image" content="/og_image_1200x630.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/twitter_card_800x418.png">
-  <meta name="image" content="/preview_1024x512.png">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Very Little Text","url":"https://verylittletext.com","description":"AI-crafted micro-text that blooms into actions."}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to verylittletext.com</title>
+  <meta name="description" content="Your website here.">
+  <meta property="og:title" content="Welcome to verylittletext.com">
+  <meta property="og:description" content="Your website here.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://verylittletext.com">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #e6e6e6;
+      --muted: #a8a8a8;
+      --card: rgb(255 255 255 / 6%);
+      --border: rgb(255 255 255 / 12%);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f7f8;
+        --fg: #0a0a0a;
+        --muted: #5a5a5a;
+        --card: rgb(0 0 0 / 4%);
+        --border: rgb(0 0 0 / 10%);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      background:
+        radial-gradient(1200px 800px at 10% -20%, rgb(99 102 241 / 12%), transparent 60%),
+        radial-gradient(1200px 800px at 110% 120%, rgb(16 185 129 / 12%), transparent 60%),
+        var(--bg);
+      color: var(--fg);
+      display: grid;
+      place-items: center;
+      padding: 3rem 1.5rem;
+    }
+    .card {
+      width: min(720px, 100%);
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      text-align: center;
+      box-shadow: 0 20px 60px rgb(0 0 0 / 20%);
+      animation: fadeIn .6s ease-out both;
+    }
+    h1 {
+      margin: 0 0 .5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+    p.lead {
+      margin: 0 0 1.25rem;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .75rem;
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      font-size: .95rem;
+      user-select: none;
+    }
+    .chip svg { width: 1rem; height: 1rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: none; }
+      }
+    }
+    footer {
+      margin-top: 1.25rem;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    a {
+      color: inherit;
+      text-underline-offset: 2px;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <h1 class="site-title">Very Little Text</h1>
-    <p class="site-tag">AI-crafted micro-text that blooms into actions.</p>
-    <p class="site-github"><a href="https://github.com/walletstarter/VeryLittleText" target="_blank" rel="noopener">Source on GitHub</a></p>
-  </header>
-  <article class="episode">
-    <h2 class="episode-title">Flood of Words</h2>
-    <time datetime="2025-08-14" class="episode-date">2025-08-14</time>
-    <p id="m1" class="episode-body">The page inhales. Tiny sentences arrive like rain across glass. Nothing shouts; everything accumulates until it feels like weather.</p>
-  </article>
-  <section class="micro-list">
-    <div class="microline">Streetlights rehearse for sunrise.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m1">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m1#like">Like</a></div></div>
-    <div class="microline">Receipts remember our promises.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m2">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m2#like">Like</a></div></div>
-    <div class="microline">Cold coffee, warm resolve.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m3">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m3#like">Like</a></div></div>
-    <div class="microline">Windows pretend to be oceans.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m4">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m4#like">Like</a></div></div>
-    <div class="microline">The cursor taps out Morse.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m5">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m5#like">Like</a></div></div>
-    <div class="microline">Keys gossip in lowercase.<div class="actions"><a class="btn" href="episodes/2025-08-14/#m6">Open</a> <a class="btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fverylittletext.com%2Fepisodes%2F2025-08-14%2F">Share</a> <a class="btn" href="episodes/2025-08-14/#m6#like">Like</a></div></div>
-  </section>
+  <main class="card" role="main">
+    <div class="chip" aria-hidden="true" title="Domain">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Zm4.5 10a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0Z"/>
+      </svg>
+      <span>verylittletext.com</span>
+    </div>
+    <h1>Welcome to verylittletext.com</h1>
+    <p class="lead">Your website here.</p>
+    <footer>
+      <span>© 2025 verylittletext.com</span>
+    </footer>
+  </main>
 </body>
 </html>
